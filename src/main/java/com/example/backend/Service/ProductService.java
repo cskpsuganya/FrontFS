@@ -19,7 +19,7 @@ public class ProductService {
         return (List<ProductModel>) product_repo.findAll();
     }
 
-    public ProductModel productEditData(String id){
+    public ProductModel productEditData(long id){
         return (ProductModel) product_repo.findById(id).orElse(null);
     }
     public ProductModel productEditSave(ProductModel data){
@@ -36,7 +36,7 @@ public class ProductService {
         return product_repo.save(data);
     }
 
-    public String productDelete(String id){
+    public String productDelete(long id){
         product_repo.deleteById(id);
         return "Product Removed !!"+id;
     }
