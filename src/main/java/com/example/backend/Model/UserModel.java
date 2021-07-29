@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -22,6 +24,7 @@ public class UserModel {
 	 @OneToMany(cascade=CascadeType.ALL,mappedBy = "userId")
 	 private List<OrderModel> orderList = new ArrayList<>();
 	 @OneToOne(cascade = CascadeType.ALL)
+	 @GeneratedValue(strategy= GenerationType.IDENTITY)
      private CartModel cart;
 	 
 	public List<OrderModel> getOrderList() {
@@ -54,7 +57,7 @@ public class UserModel {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	public boolean isActive() {
+	public boolean getActive() {
 		return active;
 	}
 	public void setActive(boolean active) {
@@ -65,6 +68,13 @@ public class UserModel {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+	public CartModel getCart() {
+		return cart;
+	}
+	public void setCart(CartModel cart) {
+		this.cart = cart;
 	}
 	 
 	
