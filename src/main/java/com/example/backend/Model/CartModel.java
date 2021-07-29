@@ -11,16 +11,16 @@ public class CartModel {
     
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String cartItemID;
+	private Long cartItemID;
 	@OneToOne
 	private UserModel userId;
 	private String ProductName;
 	private int Quantity;
 	private String Price;
-	public String getCartItemID() {
+	public Long getCartItemID() {
 		return cartItemID;
 	}
-	public void setCartItemID(String cartItemID) {
+	public void setCartItemID(Long cartItemID) {
 		this.cartItemID = cartItemID;
 	}
 	public UserModel getUserId() {
