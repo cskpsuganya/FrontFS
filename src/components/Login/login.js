@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 import useStyles from '../styles';
 
 
-export default function Login() {
+export default function Product() {
   const classes = useStyles();
 
   return (
