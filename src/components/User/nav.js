@@ -22,16 +22,15 @@ export default function UserNav() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" id="userNavbar">
         <Toolbar>
           <Typography align="left" variant="h6" className={classes.title}>
             Instument Store{'       '}
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">Cart</Button>
-          <Button color="inherit">My Order</Button>
+          <Button color="inherit" id="instrumentHomeButton">Home</Button>
+          <Button color="inherit" id="instrumentCartButton">Cart</Button>
+          <Button color="inherit" id="instrumentOrderButton">My Order</Button>
           </Typography>
-          
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit" id="logoutButton">Logout</Button>
         </Toolbar>
       </AppBar>
     </div>
