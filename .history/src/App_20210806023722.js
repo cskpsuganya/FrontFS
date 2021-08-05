@@ -9,13 +9,13 @@ import SignUp from "./components/SignUp/signup";
 import Login from "./components/Login/login";
 
 //User components
-import UserNav from "./components/UserNav/nav";
-import HomeBody from "./components/Home/home";
-import CartBody from "./components/Cart/cart";
+import UserNav from "./components/User/nav";
+import HomeBody from "./components/User/home";
+import CartBody from "./components/User/cart";
 
 //Admin components
 import AdminNav from "./components/Admin/AdminNav/nav";
-import Orders from "./components/UserOrder/orders";
+import Orders from "./components/Admin/AdminNav/orders";
 import Product from "./components/Admin/AddProduct/product";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";

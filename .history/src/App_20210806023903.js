@@ -15,7 +15,7 @@ import CartBody from "./components/Cart/cart";
 
 //Admin components
 import AdminNav from "./components/Admin/AdminNav/nav";
-import Orders from "./components/UserOrder/orders";
+import Orders from "./components/Admin/AdminNav/orders";
 import Product from "./components/Admin/AddProduct/product";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
