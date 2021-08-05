@@ -38,28 +38,28 @@ function App() {
         <Switch>
           <Route exact path="/">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <HomeBody />
             </div>
           </Route>
 
           <Route exact path="/signup">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <SignUp />
             </div>
           </Route>
 
           <Route exact path="/login">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <Login />
             </div>
           </Route>
 
           <Route exact path="/cart">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <CartBody />
             </div>
           </Route>
@@ -75,13 +75,6 @@ function App() {
             <div className="App">
               <AdminNav name="Instrumental Store" />
               <Orders />
-            </div>
-          </Route>
-
-          <Route exact path="/addProduct">
-            <div className="App">
-              <AdminNav name="Instrumental Store" />
-              <Product />
             </div>
           </Route>
         </Switch>

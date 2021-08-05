@@ -45,21 +45,21 @@ function App() {
 
           <Route exact path="/signup">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <SignUp />
             </div>
           </Route>
 
           <Route exact path="/login">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <Login />
             </div>
           </Route>
 
           <Route exact path="/cart">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <CartBody />
             </div>
           </Route>

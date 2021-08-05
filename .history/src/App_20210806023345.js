@@ -59,7 +59,7 @@ function App() {
 
           <Route exact path="/cart">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <CartBody />
             </div>
           </Route>

@@ -19,7 +19,7 @@ import Orders from "./components/Admin/orders";
 import Product from "./components/Admin/product";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { Dashboard, Home } from "@material-ui/icons";
+import { Dashboard } from "@material-ui/icons";
 
 //TODO change primary to orange
 //import { createTheme } from '@material-ui/core/styles';
@@ -38,50 +38,22 @@ function App() {
         <Switch>
           <Route exact path="/">
             <div className="App">
-              <UserNav name="Instrumental Store" />
-              <HomeBody />
+              <AdminNav name="Instrumental Store" />
+              <Dashboard />
             </div>
           </Route>
 
           <Route exact path="/signup">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <SignUp />
             </div>
           </Route>
 
           <Route exact path="/login">
             <div className="App">
-              <UserNav name="Instrumental Store" />
+              <AdminNav name="Instrumental Store" />
               <Login />
-            </div>
-          </Route>
-
-          <Route exact path="/cart">
-            <div className="App">
-              <UserNav name="Instrumental Store" />
-              <CartBody />
-            </div>
-          </Route>
-
-          <Route exact path="/admin">
-            <div className="App">
-              <AdminNav name="Instrumental Store" />
-              <Orders />
-            </div>
-          </Route>
-
-          <Route exact path="/admin/orders">
-            <div className="App">
-              <AdminNav name="Instrumental Store" />
-              <Orders />
-            </div>
-          </Route>
-
-          <Route exact path="/addProduct">
-            <div className="App">
-              <AdminNav name="Instrumental Store" />
-              <Product />
             </div>
           </Route>
         </Switch>

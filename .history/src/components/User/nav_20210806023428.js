@@ -21,12 +21,8 @@ export default function UserNav(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar
-        style={{ background: "orange" }}
-        position="static"
-        id="userNavbar"
-      >
+    <div style={{ background: "orange" }} className={classes.root}>
+      <AppBar position="static" id="userNavbar">
         <Toolbar>
           <Typography align="left" variant="h6" className={classes.title}>
             {props.name + "       "}

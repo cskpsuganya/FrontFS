@@ -57,7 +57,7 @@ function MediaCard(props) {
   );
 }
 
-export default function HomeBody() {
+export default function Home() {
   const classes = useStyles();
 
   return (
