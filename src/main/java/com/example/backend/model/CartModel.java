@@ -1,10 +1,6 @@
-package com.example.backend.Model;
+package com.example.backend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class CartModel {
@@ -13,7 +9,7 @@ public class CartModel {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long cartItemID;
 	@OneToOne
-	private UserModel userId;
+	private User userId;
 	private String ProductName;
 	private int Quantity;
 	private String Price;
@@ -23,10 +19,10 @@ public class CartModel {
 	public void setCartItemID(Long cartItemID) {
 		this.cartItemID = cartItemID;
 	}
-	public UserModel getUserId() {
+	public User getUserId() {
 		return userId;
 	}
-	public void setUserId(UserModel userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 	public String getProductName() {

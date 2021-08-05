@@ -1,15 +1,17 @@
-package com.example.backend.Model;
+package com.example.backend.message.request;
 
-import org.springframework.context.annotation.Primary;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
-public class LoginModel {
-
-    @Id
+public class LoginForm {
+    @NotBlank
+    @Size(max = 50)
+    @Email
     private String email;
+
+    @NotBlank
+    @Size(min = 6, max = 40)
     private String password;
 
     public String getEmail() {

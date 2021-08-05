@@ -1,8 +1,8 @@
 package com.example.backend.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.backend.Model.CartModel;
+import com.example.backend.model.CartModel;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CartRepo extends JpaRepository<CartModel,String>{
 

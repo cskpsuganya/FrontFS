@@ -1,11 +1,6 @@
-package com.example.backend.Model;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+package com.example.backend.model;
+
+import javax.persistence.*;
 
 @Entity
 public class OrderModel {
@@ -13,8 +8,8 @@ public class OrderModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private String orderId;
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "email", referencedColumnName = "email", nullable = false)
-	private UserModel userId;
+	@JoinColumn(name = "email", referencedColumnName = "id", nullable = false)
+	private User userId;
 	private String ProductName;
 	private int quantity;
 	private String totalPrice;
@@ -27,10 +22,10 @@ public class OrderModel {
 	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
-	public UserModel getUserId() {
+	public User getUserId() {
 		return userId;
 	}
-	public void setUserId(UserModel userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 	public String getProductName() {
