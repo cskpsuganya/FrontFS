@@ -1,5 +1,7 @@
 package com.example.backend.message.request;
 
+import com.example.backend.model.CartModel;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -24,6 +26,8 @@ public class SignUpForm {
 
     private String mobileNumber;
     private boolean active;
+
+    private CartModel cart;
 
     public String getMobileNumber() {
         return mobileNumber;
@@ -71,5 +75,13 @@ public class SignUpForm {
     
     public void setRole(Set<String> role) {
     	this.role = role;
+    }
+
+    public CartModel getCart() {
+        return cart;
+    }
+
+    public void setCart(CartModel cart) {
+        this.cart = cart;
     }
 }

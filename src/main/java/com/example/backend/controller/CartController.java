@@ -26,4 +26,5 @@ public class CartController {
 		CartModel cartItem = cartservice.addToCart(id,quantity);
 		return cartItem;
 	}
+
 }

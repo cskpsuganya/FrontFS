@@ -11,6 +11,8 @@ import com.example.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CartService {
     
@@ -34,5 +36,9 @@ public class CartService {
 		cartItem.setUserId(user);
 //
 		return cart_repo.save(cartItem);
+	}
+
+	public List<CartModel> showCart(long id){
+		return cart_repo.findById(id);
 	}
 }

@@ -5,6 +5,7 @@ import com.example.backend.message.request.LoginForm;
 import com.example.backend.message.request.SignUpForm;
 import com.example.backend.message.response.JwtResponse;
 import com.example.backend.message.response.ResponseMessage;
+import com.example.backend.model.CartModel;
 import com.example.backend.model.Role;
 import com.example.backend.model.RoleName;
 import com.example.backend.model.User;
@@ -73,8 +74,12 @@ public class AuthRestAPIs {
 		}
 
 		// Creating user's account
-		User user = new User(signUpRequest.getUsername(), signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()));
+
+		CartModel cart = new CartModel();
+//
+//		user1.setCart(cart);
+//		return user_repo.save(user1);
+		User user = new User(signUpRequest.getEmail(),encoder.encode(signUpRequest.getPassword()), signUpRequest.getUsername());
 
 		Set<Role> roles = new HashSet<>(); 
 		if(signUpRequest.getRole() != null) {
@@ -106,7 +111,7 @@ public class AuthRestAPIs {
 					.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
 			roles.add(userRole);			
 		}
-		
+		user.setCart(cart);
 		user.setRoles(roles);
 		userRepository.save(user);
 

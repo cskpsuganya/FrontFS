@@ -89,11 +89,11 @@ public class User{
 
     public User() {}
 
-    public User(String username, String email, String password) {
-
-        this.username = username;
+    public User(String email, String password, String username) {
         this.email = email;
         this.password = password;
+        this.username = username;
+
     }
 
     public Long getId() {
