@@ -20,7 +20,6 @@ import Product from "./components/Admin/AddProduct/product";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { Dashboard, Home } from "@material-ui/icons";
-import DashboardPage from "./components/Admin/Dashboard/Dashboard";
 
 //TODO change primary to orange
 //import { createTheme } from '@material-ui/core/styles';
@@ -68,7 +67,7 @@ function App() {
           <Route exact path="/admin">
             <div className="App">
               <AdminNav name="Instrumental Store" />
-              <DashboardPage />
+              <Dashboard />
             </div>
           </Route>
 
