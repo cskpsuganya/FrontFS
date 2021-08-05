@@ -24,7 +24,7 @@ export default function AdminNav(props) {
   return (
     <div className={classes.root}>
       <AppBar
-        style={{ background: "orange" }}
+        background_color=
         col
         position="static"
         id="adminNavbar"

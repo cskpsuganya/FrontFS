@@ -30,10 +30,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 function App() {
   return (
     <MuiThemeProvider>
-      <div className="App">
-        <AdminNav name="Instrumental Store" />
-        <Product />
-      </div>
+      <div className="App"></div>
     </MuiThemeProvider>
   );
 }

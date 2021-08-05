@@ -31,7 +31,6 @@ function App() {
   return (
     <MuiThemeProvider>
       <div className="App">
-        <AdminNav name="Instrumental Store" />
         <Product />
       </div>
     </MuiThemeProvider>

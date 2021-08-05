@@ -104,8 +104,6 @@ export default function Product() {
                 fullWidth
                 variant="contained"
                 color="orange"
-                backgroundColor="orange"
-                style={{ background: "orange" }}
                 className={classes.submit}
               >
                 Sign Up

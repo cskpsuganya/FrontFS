@@ -1,5 +1,5 @@
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
 
 //Auth componentst
 import SignUp from "./components/SignUp/signup";
@@ -15,7 +15,7 @@ import AdminNav from "./components/Admin/nav";
 import Orders from "./components/Admin/orders";
 import Product from "./components/Admin/product";
 
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 //TODO change primary to orange
 //import { createTheme } from '@material-ui/core/styles';
@@ -31,7 +31,7 @@ function App() {
   return (
     <MuiThemeProvider>
       <div className="App">
-        <AdminNav name="Instrumental Store" />
+        <AdminNav name="Instrumental Store"/>
         <Product />
       </div>
     </MuiThemeProvider>

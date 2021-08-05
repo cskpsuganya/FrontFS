@@ -23,13 +23,8 @@ export default function AdminNav(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar
-        style={{ background: "orange" }}
-        col
-        position="static"
-        id="adminNavbar"
-      >
-        <Toolbar>
+      <AppBar position="static" id="adminNavbar">
+        <Toolbar color="orange">
           <Typography align="left" variant="h6" className={classes.title}>
             {props.name + "       "}
             <Button
