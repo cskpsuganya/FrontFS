@@ -24,7 +24,7 @@ const rows = [
   },
 ];
 
-export default class Dashboard extends React.ComponentComponent {
+export default class Product extends React.ComponentComponent {
   render() {  const classes = useStyles();
 
   return (

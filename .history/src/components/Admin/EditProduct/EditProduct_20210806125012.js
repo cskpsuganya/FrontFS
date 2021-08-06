@@ -49,7 +49,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default class EditProduct extends React.ComponentComponent {
+export default class Product extends React.ComponentComponent {
   render() {  const classes = useStyles();
 
   return (
@@ -95,5 +95,4 @@ export default class EditProduct extends React.ComponentComponent {
       </TableContainer>
     </div>
   );
-}
 }

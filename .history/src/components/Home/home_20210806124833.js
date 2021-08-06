@@ -32,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function MediaCard(props) {
-  const classes = useStyles();
+export default class Product extends React.ComponentComponent {
+  render() {  const classes = useStyles();
 
   return (
     <Grid item xs={2}>
@@ -57,33 +57,31 @@ function MediaCard(props) {
   );
 }
 
-export default class Home extends React.ComponentComponent {
-  render() {
-    const classes = useStyles();
+export default function HomeBody() {
+  const classes = useStyles();
 
-    return (
-      <div className={classes.root}>
-        <div className={classes.banner}>
-          <Typography component="h1" variant="h3" style={{ fontWeight: 600 }}>
-            WELCOME HOME
-          </Typography>
-        </div>
-        <div />
-        <div id="instrumentHomeBody" className={classes.body}>
-          <Grid container spacing={3} direction="row">
-            {/* TODO backend card gen here */}
-            {Array(20)
-              .fill(1)
-              .map((el, i) => (
-                <MediaCard
-                  price="100"
-                  name="ProductName"
-                  src="https://m.media-amazon.com/images/I/41eBIiMMjbL._SY355_.jpg"
-                />
-              ))}
-          </Grid>
-        </div>
+  return (
+    <div className={classes.root}>
+      <div className={classes.banner}>
+        <Typography component="h1" variant="h3" style={{ fontWeight: 600 }}>
+          WELCOME HOME
+        </Typography>
       </div>
-    );
-  }
+      <div />
+      <div id="instrumentHomeBody" className={classes.body}>
+        <Grid container spacing={3} direction="row">
+          {/* TODO backend card gen here */}
+          {Array(20)
+            .fill(1)
+            .map((el, i) => (
+              <MediaCard
+                price="100"
+                name="ProductName"
+                src="https://m.media-amazon.com/images/I/41eBIiMMjbL._SY355_.jpg"
+              />
+            ))}
+        </Grid>
+      </div>
+    </div>
+  );
 }

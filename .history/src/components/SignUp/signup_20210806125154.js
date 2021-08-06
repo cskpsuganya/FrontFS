@@ -9,8 +9,8 @@ import Container from '@material-ui/core/Container';
 import useStyles from '../styles';
 
 
-export default class SignUp extends React.ComponentComponent {
-  render() {  const classes = useStyles();
+export default function SignUp() {
+  const classes = useStyles();
 
   return (
     <Container component="main" maxWidth="xs">
@@ -93,5 +93,4 @@ export default class SignUp extends React.ComponentComponent {
       </div>
     </Container>
   );
-}
 }

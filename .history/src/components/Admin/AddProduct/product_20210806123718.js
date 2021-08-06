@@ -19,7 +19,7 @@ const rows = [
   },
 ];
 
-export default class Product extends React.ComponentComponent {
+export default class Product extends React.Component {
   render() {
     const classes = useStyles();
     return (

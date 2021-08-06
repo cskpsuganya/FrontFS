@@ -9,7 +9,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { IconButton , Button} from '@material-ui/core';
-import Spacing from 'material-ui/styles/spacing';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -29,17 +28,10 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, price, quantity) {
-  return { name, price, quantity};
-}
 
 // TODO apply data here
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0,),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Eclair', 262, 16.0,),
-  createData('Cupcake', 305, 3.7,),
-  createData('Gingerbread', 356, 16.0),
+  {"orderID":"r82hoefiw","userID":"sam","ProductName":"guitar","price":"2000","quantity":"1"},
 ];
 
 const useStyles = makeStyles({
@@ -48,7 +40,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default class CartBody extends React.ComponentComponent {
+export default class Orders extends React.ComponentComponent {
   render() {  const classes = useStyles();
 
   return (
@@ -57,28 +49,26 @@ export default class CartBody extends React.ComponentComponent {
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Product Name</StyledTableCell>
-            <StyledTableCell align="right">Price</StyledTableCell>
+            <StyledTableCell>Order ID</StyledTableCell>
+            <StyledTableCell align="right">User ID</StyledTableCell>
+            <StyledTableCell align="right">Instrument Name&nbsp;</StyledTableCell>
+            <StyledTableCell align="right">Price&nbsp;</StyledTableCell>
             <StyledTableCell align="right">Quantity&nbsp;</StyledTableCell>
-            <StyledTableCell align="right">&nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">{row.name}</StyledTableCell>
+              <StyledTableCell component="th" scope="row">{row.orderID}</StyledTableCell>
+              <StyledTableCell align="right">{row.userID}</StyledTableCell>
+              <StyledTableCell align="right">{row.ProductName}</StyledTableCell>
               <StyledTableCell align="right">{row.price}</StyledTableCell>
               <StyledTableCell align="right">{row.quantity}</StyledTableCell>
-              <StyledTableCell align="right"><IconButton style={{backgroundColor:"red",color:"white"}} aria-label="Delete"><DeleteIcon /></IconButton>
-              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-    <br/>
-    <Button style={{borderRadius: 10,position:"absolute",left:80,padding:"20px",backgroundColor:"orange",color:"white"}}>Place your Order</Button>
     </div>
   );
-}
 }

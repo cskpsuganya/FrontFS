@@ -57,7 +57,7 @@ function MediaCard(props) {
   );
 }
 
-export default class Home extends React.ComponentComponent {
+export default class Product extends React.ComponentComponent {
   render() {
     const classes = useStyles();
 

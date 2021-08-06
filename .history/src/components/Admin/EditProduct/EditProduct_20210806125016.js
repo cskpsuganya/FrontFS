@@ -96,4 +96,3 @@ export default class EditProduct extends React.ComponentComponent {
     </div>
   );
 }
-}

@@ -16,9 +16,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
-
-export default class UserNav extends React.ComponentComponent {
-  render(props) {  const classes = useStyles();
+UserNav extends React.ComponentComponent {
+  render() {  const classes = useStyles();
 
   return (
     <div className={classes.root}>
@@ -47,5 +46,4 @@ export default class UserNav extends React.ComponentComponent {
       </AppBar>
     </div>
   );
-}
 }

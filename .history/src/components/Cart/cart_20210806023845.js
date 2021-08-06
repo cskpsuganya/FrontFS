@@ -48,8 +48,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default class CartBody extends React.ComponentComponent {
-  render() {  const classes = useStyles();
+export default function CartBody() {
+  const classes = useStyles();
 
   return (
     <div style={{padding:"80px"}}>
@@ -80,5 +80,4 @@ export default class CartBody extends React.ComponentComponent {
     <Button style={{borderRadius: 10,position:"absolute",left:80,padding:"20px",backgroundColor:"orange",color:"white"}}>Place your Order</Button>
     </div>
   );
-}
 }

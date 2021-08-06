@@ -48,4 +48,3 @@ export default class UserNav extends React.ComponentComponent {
     </div>
   );
 }
-}

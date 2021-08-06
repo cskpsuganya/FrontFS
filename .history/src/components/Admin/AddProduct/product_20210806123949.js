@@ -21,7 +21,6 @@ const rows = [
 
 export default class Product extends React.ComponentComponent {
   render() {
-    const classes = useStyles();
     return (
       <Grid container spacing={3}>
         <Grid item xs={6}>

@@ -81,4 +81,3 @@ export default class CartBody extends React.ComponentComponent {
     </div>
   );
 }
-}

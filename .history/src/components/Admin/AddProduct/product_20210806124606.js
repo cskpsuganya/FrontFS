@@ -20,8 +20,8 @@ const rows = [
 ];
 
 export default class Product extends React.ComponentComponent {
+  const classes = useStyles();
   render() {
-    const classes = useStyles();
     return (
       <Grid container spacing={3}>
         <Grid item xs={6}>

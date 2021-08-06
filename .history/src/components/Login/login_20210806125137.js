@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 import useStyles from '../styles';
 
 
-export default class SignUp extends React.ComponentComponent {
+export default class Product extends React.ComponentComponent {
   render() {  const classes = useStyles();
 
   return (
@@ -17,7 +17,7 @@ export default class SignUp extends React.ComponentComponent {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h4" color="primary">
-          SIGN UP
+          LOGIN
         </Typography>
         {/* TODO connect backend*/}
         <form className={classes.form} noValidate>
@@ -27,7 +27,7 @@ export default class SignUp extends React.ComponentComponent {
             required
             fullWidth
             id="email"
-            label="Enter Email"
+            label="Email Address"
             name="email"
             autoComplete="email"
             autoFocus
@@ -37,38 +37,10 @@ export default class SignUp extends React.ComponentComponent {
             margin="normal"
             required
             fullWidth
-            id="username"
-            label="Enter Username"
-            name="username"
-            autoComplete="username"
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="mobilenumber"
-            label="Enter Mobile Number"
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
             name="password"
-            label="Enter Password"
+            label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            label="Confirm Password"
-            type="password"
-            id="confirmpassword"
             autoComplete="current-password"
           />
           <Button
@@ -79,13 +51,13 @@ export default class SignUp extends React.ComponentComponent {
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+            Login
           </Button>
           <Grid container alignItems="center">
             <Grid item>
-              Already a member? 
+            Don't have an account? 
               <Link href="#" variant="body2">
-                 {" Sign In"}
+                 {" Click here"}
               </Link>
             </Grid>
           </Grid>
@@ -93,5 +65,4 @@ export default class SignUp extends React.ComponentComponent {
       </div>
     </Container>
   );
-}
 }

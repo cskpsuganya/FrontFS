@@ -94,4 +94,3 @@ export default class SignUp extends React.ComponentComponent {
     </Container>
   );
 }
-}

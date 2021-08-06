@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default class UserNav extends React.ComponentComponent {
-  render(props) {  const classes = useStyles();
+export default class Product extends React.ComponentComponent {
+  render() {  const classes = useStyles();
 
   return (
     <div className={classes.root}>
@@ -47,5 +47,4 @@ export default class UserNav extends React.ComponentComponent {
       </AppBar>
     </div>
   );
-}
 }
