@@ -1,5 +1,7 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -14,14 +16,14 @@ import java.util.Set;
 @Entity
 
 public class User{
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 //    @NotBlank
 //    @Size(min=3, max = 50)
 //    private String firstname;
-    
+
 //    @NotBlank
 //    @Size(min=3, max = 50)
 //    private String lastname;
@@ -43,17 +45,28 @@ public class User{
     private String username;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles", 
-    	joinColumns = @JoinColumn(name = "user_id"), 
-    	inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
     private String mobileNumber;
     private boolean active;
     @OneToMany(cascade=CascadeType.ALL,mappedBy = "userId")
     private List<OrderModel> orderList = new ArrayList<>();
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private CartModel cart;
+
+
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<CartModel> cart;
+
+    public List<CartModel> getCart() {
+        return cart;
+    }
+
+    public void setCart(List<CartModel> cart) {
+        this.cart = cart;
+    }
+
 
     public List<OrderModel> getOrderList() {
         return orderList;
@@ -63,13 +76,7 @@ public class User{
         this.orderList = orderList;
     }
 
-    public CartModel getCart() {
-        return cart;
-    }
 
-    public void setCart(CartModel cart) {
-        this.cart = cart;
-    }
 
     public String getMobileNumber() {
         return mobileNumber;

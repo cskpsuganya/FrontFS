@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CartRepo extends JpaRepository<CartModel,String>{
+public interface CartRepo extends JpaRepository<CartModel,Long>{
 
-    List<CartModel> findById(long id);
+    List<CartModel> findById(long email);
 }

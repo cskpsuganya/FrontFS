@@ -29,7 +29,6 @@ import java.util.Set;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/auth")
 public class AuthRestAPIs {
 
 	@Autowired
@@ -75,10 +74,6 @@ public class AuthRestAPIs {
 
 		// Creating user's account
 
-		CartModel cart = new CartModel();
-//
-//		user1.setCart(cart);
-//		return user_repo.save(user1);
 		User user = new User(signUpRequest.getEmail(),encoder.encode(signUpRequest.getPassword()), signUpRequest.getUsername());
 
 		Set<Role> roles = new HashSet<>(); 
@@ -111,8 +106,7 @@ public class AuthRestAPIs {
 					.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
 			roles.add(userRole);			
 		}
-		user.setCart(cart);
-		user.setRoles(roles);
+
 		userRepository.save(user);
 
 		return new ResponseEntity<>(new ResponseMessage("User "+ signUpRequest.getEmail() + " is registered successfully!"), HttpStatus.OK);

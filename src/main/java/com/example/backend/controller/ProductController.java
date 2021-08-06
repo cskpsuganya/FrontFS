@@ -15,6 +15,10 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @GetMapping("/home")
+    public  List<ProductModel> getHomeProduct(){
+        return productService.getHomeProduct();
+    }
 
     @GetMapping("/admin")
     public List<ProductModel> getProduct(){
