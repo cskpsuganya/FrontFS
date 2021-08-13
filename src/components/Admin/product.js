@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useStyles from '../styles';
+import PropTypes from 'prop-types';
 
 // TODO apply data here
 const rows = [
@@ -14,10 +15,11 @@ const rows = [
 ];
 
 
-export default function Product() {
-  const classes = useStyles();
-
-  return (
+class Product extends React.Component {
+  
+  render() {
+    const classes = this.props;
+    return (
     
     <Grid container spacing={3}>
       <Grid item xs={6}>
@@ -102,3 +104,6 @@ export default function Product() {
     </Grid>
   );
 }
+}
+
+export default withStyles(useStyles)(Product);

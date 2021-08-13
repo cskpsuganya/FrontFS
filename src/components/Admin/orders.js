@@ -7,8 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { IconButton , Button} from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -40,10 +39,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Orders() {
-  const classes = useStyles();
-
-  return (
+class Orders extends React.Component {
+  
+  render(){
+    const { classes } = this.props;
+    return (
     <div style={{padding:"80px"}}>
     <TableContainer component={Paper} style={{borderRadius: 10}}>
       <Table className={classes.table} aria-label="customized table">
@@ -72,3 +72,11 @@ export default function Orders() {
     </div>
   );
 }
+}
+
+Orders.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+
+export default withStyles(useStyles)(Orders);

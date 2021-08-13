@@ -7,11 +7,12 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import useStyles from '../styles';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-
-export default function Product() {
-  const classes = useStyles();
-
+class Product extends React.Component {
+  render(){
+    const { classes } = this.props;
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -66,3 +67,11 @@ export default function Product() {
     </Container>
   );
 }
+}
+
+Product.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+
+export default withStyles(useStyles)(Product);

@@ -32,7 +32,7 @@ function App() {
     <MuiThemeProvider>
       <div className="App">
         <AdminNav name="Instrumental Store"/>
-        <Product />
+        <SignUp />
       </div>
     </MuiThemeProvider>
   );
