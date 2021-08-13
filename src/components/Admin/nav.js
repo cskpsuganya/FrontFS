@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { ExitToApp , ShoppingCart,LocalShipping} from '@material-ui/icons';
 
-const useStyles = makeStyles((theme) => ({
+const styles = theme => ({
   root: {
     flexGrow: 1,
   },
@@ -16,14 +16,14 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}));
+});
 
-class AdminNav(props)
-{
-  const classes = useStyles();
-
-  return (
-    <div className={classes.root}>
+class AdminNav extends React.Component {
+  
+  render(){
+    const { classes } = this.props;
+    return (
+      <div className={classes.root}>
       <AppBar position="static" id="adminNavbar">
         <Toolbar>
           <Typography align="left" variant="h6" className={classes.title}>
@@ -35,7 +35,13 @@ class AdminNav(props)
         </Toolbar>
       </AppBar>
     </div>
-  );
+      );
+  }
 }
 
-export default AdminNav;
+AdminNav.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+
+export default withStyles(styles)(AdminNav);
