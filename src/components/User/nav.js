@@ -1,11 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -15,17 +16,18 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}));
+});
 
-export default function UserNav(props) {
-  const classes = useStyles();
-
+class UserNav extends React.Component {
+  
+  render(){
+  const classes = this.props;
   return (
     <div className={classes.root}>
       <AppBar position="static" id="userNavbar">
         <Toolbar>
           <Typography align="left" variant="h6" className={classes.title}>
-            {props.name+'       '}
+            {this.props.name+'       '}
           <Button color="inherit" id="instrumentHomeButton">Home</Button>
           <Button color="inherit" id="instrumentCartButton">Cart</Button>
           <Button color="inherit" id="instrumentOrderButton">My Order</Button>
@@ -36,3 +38,11 @@ export default function UserNav(props) {
     </div>
   );
 }
+}
+
+UserNav.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+
+export default withStyles(useStyles)(UserNav);

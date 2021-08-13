@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { IconButton , Button} from '@material-ui/core';
-import Spacing from 'material-ui/styles/spacing';
+import PropTypes from 'prop-types';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -48,8 +48,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CartBody() {
-  const classes = useStyles();
+class CartBody extends React.Component {
+  
+  render(){
+    const classes = this.props;
 
   return (
     <div style={{padding:"80px"}}>
@@ -81,3 +83,11 @@ export default function CartBody() {
     </div>
   );
 }
+}
+
+CartBody.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+
+export default withStyles(useStyles)(CartBody);
