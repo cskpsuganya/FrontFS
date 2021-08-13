@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AdminNav(props) {
+class AdminNav(props)
+{
   const classes = useStyles();
 
   return (
@@ -36,3 +37,5 @@ export default function AdminNav(props) {
     </div>
   );
 }
+
+export default AdminNav;
