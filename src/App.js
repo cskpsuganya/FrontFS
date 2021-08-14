@@ -14,6 +14,7 @@ import CartBody from "./components/User/cart";
 import AdminNav from "./components/Admin/nav";
 import Orders from "./components/Admin/orders";
 import Product from "./components/Admin/product";
+import Dashboard from "./components/Admin/dashboard";
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
@@ -32,7 +33,7 @@ function App() {
     <MuiThemeProvider>
       <div className="App">
         <UserNav name="Instrumental Store"/>
-        <CartBody />
+        <Dashboard />
       </div>
     </MuiThemeProvider>
   );
