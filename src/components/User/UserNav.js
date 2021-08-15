@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const useStyles = (theme) => ({
   root: {
@@ -29,7 +30,9 @@ class UserNav extends React.Component {
           <Typography align="left" variant="h6" className={classes.title}>
             {this.props.name+'       '}
           <Button color="inherit" id="instrumentHomeButton">Home</Button>
+          <Link to="/cart">
           <Button color="inherit" id="instrumentCartButton">Cart</Button>
+          </Link>
           <Button color="inherit" id="instrumentOrderButton">My Order</Button>
           </Typography>
           <Button color="inherit" id="logoutButton">Logout</Button>

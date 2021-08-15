@@ -50,6 +50,30 @@ const useStyles = makeStyles({
 
 class CartBody extends React.Component {
   
+  constructor(props){
+    super(props);
+
+    this.getUserCart = this.getUserCart.bind(this);
+    this.state ={
+      cart: [],
+    };
+  }
+
+  componentDidMount(){
+    this.getUserCart();
+  }
+
+  // getUserCart(){
+  //   userService.getUserHomes().then(response => {
+  //     this.setState({
+  //       products: response.data
+  //     });
+  //     console.log(response.data);
+  //   })
+  //   .catch(e => {
+  //     console.log(e);
+  //   });
+  // }
   render(){
     const classes = this.props;
 

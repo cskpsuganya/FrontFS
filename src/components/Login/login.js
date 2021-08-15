@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
+// import Form from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -10,7 +11,65 @@ import useStyles from '../styles';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
-class Product extends React.Component {
+
+import authService from '../services/auth-service';
+
+
+class Login extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+
+    this.state = {
+      username : "",
+      password : "",
+      loading: false,
+      message: ""
+    };
+  }
+
+  onChangeUsername(e){
+    this.setState({
+      username: e.target.value
+    });
+  }
+  onChangePassword(e){
+    this.setState({
+      password: e.target.value
+    });
+  }
+   handleLogin(e){
+     e.preventDefault();
+     this.setState({
+       message: "",
+       loading: true
+     });
+    //  console.log(this.setState(this.state.username));
+    //  console.log(this.state.password);
+
+     authService.login(this.state.username, this.state.password).then(
+       ()=>{
+        this.props.history.push("/home");
+        window.location.reload();
+         console.log("loggedin");
+       },
+       error =>{
+         const resMessage = (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+        
+        this.setState({
+          loading: false,
+          message: resMessage
+        });
+       }
+     );
+   }
+
   render(){
     const { classes } = this.props;
   return (
@@ -21,13 +80,19 @@ class Product extends React.Component {
           LOGIN
         </Typography>
         {/* TODO connect backend*/}
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate  >
+          {/* <input value={this.state.username}
+            onChange={this.onChangeUsername}> */}
+          
+          {/* </input> */}
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
             id="email"
+            value={this.state.username}
+            onChange={this.onChangeUsername}
             label="Email Address"
             name="email"
             autoComplete="email"
@@ -38,11 +103,13 @@ class Product extends React.Component {
             margin="normal"
             required
             fullWidth
+            value={this.state.password}
+            onChange={this.onChangePassword}
             name="password"
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
+            
           />
           <Button
             id="submitButton"
@@ -50,10 +117,12 @@ class Product extends React.Component {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
-          >
+            onClick={this.handleLogin}
+            className={classes.submit}>
+            
             Login
           </Button>
+     
           <Grid container alignItems="center">
             <Grid item>
             Don't have an account? 
@@ -69,9 +138,9 @@ class Product extends React.Component {
 }
 }
 
-Product.propTypes = {
+Login.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(useStyles)(Product);
+export default withStyles(useStyles)(Login);

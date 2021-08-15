@@ -9,11 +9,86 @@ import Container from '@material-ui/core/Container';
 import useStyles from '../styles';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import authService from '../services/auth-service';
 
 
 
 class SignUp extends React.Component {
- 
+  constructor(props) {
+    super(props);
+    this.handleRegister = this.handleRegister.bind(this);
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangeNumber = this.onChangeNumber.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+
+    this.state = {
+      username: "",
+      email: "",
+      password: "",
+      mobile:"",
+      successful: false,
+      message: ""
+    };
+  }
+    onChangeUsername(e){
+      this.setState({
+        username: e.target.value
+      });
+    }
+  
+    onChangeEmail(e) {
+      this.setState({
+        email: e.target.value
+      });
+    }
+  
+    onChangePassword(e) {
+      this.setState({
+        password: e.target.value
+      });
+    }
+    onChangeNumber(e) {
+      this.setState({
+        mobile: e.target.value
+      });
+    }
+  
+    handleRegister(e) {
+      e.preventDefault();
+  
+      this.setState({
+        message: "",
+        successful: false
+      });
+
+      authService.register(
+        this.state.username,
+        this.state.email,
+        this.state.password,
+        this.state.mobile
+      ).then(
+        response => {
+          this.setState({
+            message: response.data.message,
+            successful: true
+          });
+        },
+        error => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+          this.setState({
+            successful: false,
+            message: resMessage
+          });
+        }
+      );
+    }
   render() {
   const classes = this.props;
   return (
@@ -24,7 +99,10 @@ class SignUp extends React.Component {
           SIGN UP
         </Typography>
         {/* TODO connect backend*/}
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate  onSubmit={this.handleRegister}
+            ref={c => {
+              this.form = c;
+            }}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -33,6 +111,8 @@ class SignUp extends React.Component {
             id="email"
             label="Enter Email"
             name="email"
+            value={this.state.email}
+                    onChange={this.onChangeEmail}
             autoComplete="email"
             autoFocus
           />
@@ -44,6 +124,8 @@ class SignUp extends React.Component {
             id="username"
             label="Enter Username"
             name="username"
+            value={this.state.username}
+            onChange={this.onChangeUsername}
             autoComplete="username"
           />
           <TextField
@@ -51,6 +133,8 @@ class SignUp extends React.Component {
             margin="normal"
             required
             fullWidth
+            value={this.state.mobile}
+                    onChange={this.onChangeNumber}
             id="mobilenumber"
             label="Enter Mobile Number"
           />
@@ -63,6 +147,8 @@ class SignUp extends React.Component {
             label="Enter Password"
             type="password"
             id="password"
+            value={this.state.password}
+                    onChange={this.onChangePassword}
             autoComplete="current-password"
           />
           <TextField
