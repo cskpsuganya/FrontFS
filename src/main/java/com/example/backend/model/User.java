@@ -1,7 +1,5 @@
 package com.example.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -77,30 +75,14 @@ public class User{
     }
 
 
-
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
     public User() {}
 
-    public User(String email, String password, String username) {
+    public User(String email, String password, String username, String mobileNumber, boolean active) {
         this.email = email;
         this.password = password;
         this.username = username;
-
+        this.mobileNumber = mobileNumber;
+        this.active = active;
     }
 
     public Long getId() {
@@ -133,6 +115,24 @@ public class User{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public Set<Role> getRoles() {

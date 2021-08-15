@@ -13,9 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CartService {
@@ -50,10 +48,46 @@ public class CartService {
 
 		return cart_repo.save(cartItem);
 	}
-
-	public List<CartModel> showCart(long id){
-		return cart_repo.findById(id);
-	}
-
-
 }
+
+//
+////	public List<User> showCart(long id){
+////
+////		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
+////				.getPrincipal();
+////		String Current_User = userDetails.getUsername();
+////		User users = user_repo.findByEmail(Current_User).orElse(null);
+//
+////		User user = user_repo.getById();
+////		cart.setUserId(users);
+////		System.out.println(users.getId());
+////		System.out.println(cart.getCartItemID());
+////		System.out.println(cart.getPrice());
+////		System.out.println(cart.getProductName());System.out.println(cart.getQuantity());
+//
+//
+//
+////return cart_repo.findByUserId(users.getId());
+//
+//
+//
+//
+//
+//
+//
+//
+////		return  cart_repo.findById(users.getId());
+////	public Optional<User> showCart(long id){
+////		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
+////				.getPrincipal();
+////		String Current_User = userDetails.getUsername();
+////		User users = user_repo.findByEmail(Current_User).orElse(null);
+////
+////
+////		Optional<User> user = user_repo.findById(users.getId());
+////
+////		return cart_repo.findById(user);
+//	}
+//
+//
+//}

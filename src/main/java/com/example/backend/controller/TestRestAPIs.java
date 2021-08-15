@@ -1,8 +1,6 @@
 package com.example.backend.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,9 +24,6 @@ public class TestRestAPIs {
 	@GetMapping("/api/test/admin")
 	@PreAuthorize("hasRole('ADMIN')")
 	public String adminAccess() {
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
-				.getPrincipal();
-		String username = userDetails.getUsername();
-		return username;
+		return ">>> Admin Contents";
 	}
 }

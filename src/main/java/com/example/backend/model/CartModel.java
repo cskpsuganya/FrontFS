@@ -14,7 +14,7 @@ public class CartModel {
 	private Long cartItemID;
 
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "email", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "cart_id", referencedColumnName = "id", nullable = false)
 	private User userId;
 
 	private String ProductName;

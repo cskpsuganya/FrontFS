@@ -1,14 +1,11 @@
 package com.example.backend.message.request;
 
-import com.example.backend.model.CartModel;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.Set;
 
-public class SignUpForm {
+import javax.validation.constraints.*;
 
+public class SignUpForm {
     @NotBlank
     @Size(min = 3, max = 50)
     private String username;
@@ -17,33 +14,15 @@ public class SignUpForm {
     @Size(max = 60)
     @Email
     private String email;
-    
-    private Set<String> role;
-    
+
+    private Set role;
+
     @NotBlank
     @Size(min = 6, max = 40)
     private String password;
 
     private String mobileNumber;
-    private boolean active;
-
-    private CartModel cart;
-
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
+    private boolean Active;
 
     public String getUsername() {
         return username;
@@ -68,20 +47,28 @@ public class SignUpForm {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public Set<String> getRole() {
-    	return this.role;
-    }
-    
-    public void setRole(Set<String> role) {
-    	this.role = role;
+
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public CartModel getCart() {
-        return cart;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
-    public void setCart(CartModel cart) {
-        this.cart = cart;
+    public boolean isActive() {
+        return Active;
+    }
+
+    public void setActive(boolean active) {
+        Active = active;
+    }
+
+    public Set getRole() {
+        return this.role;
+    }
+
+    public void setRole(Set role) {
+        this.role = role;
     }
 }

@@ -1,17 +1,16 @@
 package com.example.backend.controller;
 
-
 import com.example.backend.message.request.LoginForm;
 import com.example.backend.message.request.SignUpForm;
 import com.example.backend.message.response.JwtResponse;
 import com.example.backend.message.response.ResponseMessage;
-import com.example.backend.model.CartModel;
 import com.example.backend.model.Role;
 import com.example.backend.model.RoleName;
 import com.example.backend.model.User;
 import com.example.backend.repository.RoleRepository;
 import com.example.backend.repository.UserRepository;
 import com.example.backend.security.jwt.JwtProvider;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +28,7 @@ import java.util.Set;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
+
 public class AuthRestAPIs {
 
 	@Autowired
@@ -73,10 +73,10 @@ public class AuthRestAPIs {
 		}
 
 		// Creating user's account
+		User user = new User( signUpRequest.getEmail(),
+				encoder.encode(signUpRequest.getPassword()),signUpRequest.getUsername(),signUpRequest.getMobileNumber(), signUpRequest.isActive());
 
-		User user = new User(signUpRequest.getEmail(),encoder.encode(signUpRequest.getPassword()), signUpRequest.getUsername());
-
-		Set<Role> roles = new HashSet<>(); 
+		Set<Role> roles = new HashSet<>();
 		if(signUpRequest.getRole() != null) {
 			Set<String> strRoles = signUpRequest.getRole();
 
@@ -106,7 +106,8 @@ public class AuthRestAPIs {
 					.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
 			roles.add(userRole);			
 		}
-
+		
+		user.setRoles(roles);
 		userRepository.save(user);
 
 		return new ResponseEntity<>(new ResponseMessage("User "+ signUpRequest.getEmail() + " is registered successfully!"), HttpStatus.OK);

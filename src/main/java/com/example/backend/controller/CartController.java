@@ -3,16 +3,18 @@ package com.example.backend.controller;
 
 import com.example.backend.Service.CartService;
 import com.example.backend.model.CartModel;
-import com.example.backend.model.ProductModel;
 import com.example.backend.repository.CartRepo;
+import com.example.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class CartController {
-	
+
+	@Autowired
+	private UserRepository user_repo;
+
 	@Autowired
 	private CartService cartservice;
 	
@@ -26,10 +28,10 @@ public class CartController {
 		return cartItem;
 	}
 
-	@GetMapping("/cart/{id}")
-	public List<CartModel> showCart(@PathVariable Long id){
-		return  cartservice.showCart(id);
-	}
+//	@GetMapping("/cart/{id}")
+//	public List<cartresponse> showCart(@PathVariable Long id){
+//		return user_repo.getJoinInformation();
+//	}
 
 
 
